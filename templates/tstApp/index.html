@@ -4,9 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>JACKPOT</title>
+    <link rel="stylesheet" href="{% static 'tstApp/styles.css' %}"/>
 </head>
-    <body>
-        <a href="{{ index }}"> Steal a soul for a second chance but you will never become a man</a>
-        <img src="{% static "tstApp/Jackpot.webp" %}" alt="Dead Weight">
-    </body>
+<body>
+<h1>The eye can seeeeeeeee</h1>
+<h2>Bless me with your gift of light</h2>
+
+<div class="djangotwo">
+    {% if access_records %}
+    <table>
+        <thead>
+        <th>Site Name</th>
+        <th>Date Accessed</th>
+        </thead>
+        {% for acc in access_records %}
+            <tr>
+                <td> {{ acc.name }}</td>
+                <td> {{ acc.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>NO ACCESS RECORDS FOUND!</p>
+    {% endif %}
+</div>
+</body>
 </html>

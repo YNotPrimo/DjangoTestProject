@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from tstApp.models import Topic, Webpage, AccessRecord
 
 
 # Create your views here.
 def index(request):
-    dct = {'index': "https://youtu.be/OkNw95QAaco"}
-    return render(request, 'tstApp/index.html', context=dct)
+    webpages_list = AccessRecord.objects.order_by('date')
+    date_dict = {'access_records': webpages_list}
+    return render(request, 'tstApp/index.html', context=date_dict)

@@ -1,12 +1,14 @@
 import os
-import django
-import random
-from tstApp.models import AccessRecord, Webpage, Topic
-from faker import Faker
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoTestProject.settings')
 
+import django
+
 django.setup()
+
+import random
+from tstApp.models import *
+from faker import Faker
 
 fakegen = Faker()
 topics = ['Search', 'Social', 'Marketplace', 'News', 'Games']
